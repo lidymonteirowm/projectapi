@@ -1,10 +1,12 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Notícias</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-
+  <button ion-item *ngFor="let news of (newsData | async)?.results">
+    {{ news.title }}
+  </button>
 </ion-content>
