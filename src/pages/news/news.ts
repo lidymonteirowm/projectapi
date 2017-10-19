@@ -24,6 +24,7 @@ export class NewsPage {
     this.navCtrl.push('NewsDetailsPage', {news: news});
   }
 
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad NewsPage');
   }
