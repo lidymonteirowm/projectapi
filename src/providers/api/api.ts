@@ -2,17 +2,19 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the ApiProvider provider.
+import { Observable } from 'rxjs/Observable';
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class ApiProvider {
 
   constructor(public http: Http) {
     console.log('Hello ApiProvider Provider');
   }
+
+  getNews(){
+    return this.http.get('http://sistemafundaj.herokuapp.com/api/noticias/?format=json').map(res => res.json());
+  }
+
+
 
 }

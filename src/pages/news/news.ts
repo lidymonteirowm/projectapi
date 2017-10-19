@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the NewsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import { ApiProvider } from './../../providers/api/api';
 
 @IonicPage()
 @Component({
@@ -15,7 +14,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class NewsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  newsData: Observable<any>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public apiProvider: ApiProvider) {
+    this.newsData = this.apiProvider.getNews();
   }
 
   ionViewDidLoad() {
