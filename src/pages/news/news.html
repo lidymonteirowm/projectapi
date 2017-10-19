@@ -6,7 +6,8 @@
 
 
 <ion-content padding>
-  <button ion-item *ngFor="let news of (newsData | async)?.results">
-    {{ news.title }}
+  <button ion-item *ngFor="let news of (newsData | async)?.results" [hidden]="news.status == 'draft'">
+   <h3 text-wrap>{{ news.title }}</h3> 
+   <p>Publicado em: {{news.publish | date }}</p>
   </button>
 </ion-content>
