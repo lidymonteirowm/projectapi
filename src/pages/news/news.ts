@@ -20,6 +20,10 @@ export class NewsPage {
     this.newsData = this.apiProvider.getNews();
   }
 
+  openDetails(news){
+    this.navCtrl.push('NewsDetailsPage', {news: news});
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad NewsPage');
   }
